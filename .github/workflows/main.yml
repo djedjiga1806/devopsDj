@@ -27,3 +27,28 @@ jobs:
       - name: Build and test with Maven
         run: mvn clean verify --file ./simple-api-student/
 
+      - name: Build and push backend Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: simple-api-student
+          dockerfile: Dockerfile
+          push: true
+          #tags: your-docker-hub-username/backend:latest
+
+      - name: Build and push database Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: db
+          dockerfile: Dockerfile
+          push: true
+          #tags: your-docker-hub-username/database:latest
+
+      - name: Build and push httpd Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: http
+          dockerfile: Dockerfile
+          push: true
+          #tags: your-docker-hub-username/httpd:latest
+
+
