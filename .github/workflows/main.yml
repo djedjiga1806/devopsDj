@@ -31,7 +31,6 @@ jobs:
 
       - name: Build and test with Maven
         run: mvn -B clean verify
-        working-directory: ./simple-api-student
 
   build-and-push-docker-image:
     needs: test-backend
