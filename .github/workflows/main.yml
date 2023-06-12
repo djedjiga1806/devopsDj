@@ -25,7 +25,8 @@ jobs:
           cache: 'maven'
 
       - name: Build and test with Maven
-        run: mvn clean verify --file ./simple-api-student/
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=devops-2023 -Dsonar.organization=devops-school -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file ./simple-api-student/pom.xml
+
 
   build-and-push-docker-image:
     needs : test-backend
