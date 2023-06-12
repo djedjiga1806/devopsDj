@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  backend:
+    build: ./backend/simple-api-student/
+    networks:
+      - my-network
+    depends_on:
+      - database
+
+  database:
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    networks:
+      - my-network
+
+  httpd:
+    build:
+      context: ./httpd
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - my-network
+    depends_on:
+      - backend
+
+networks:
+  my-network:
