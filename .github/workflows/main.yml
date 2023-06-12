@@ -3,10 +3,10 @@ name: CI devops 2023
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   test-backend:
