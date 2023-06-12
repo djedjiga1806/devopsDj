@@ -47,18 +47,18 @@ jobs:
         with:
          context: ./simple-api-student/
          tags:  ${{secrets.DOCKERHUB_USERNAME}}/api
-         push: ${{ github.ref == 'refs/heads/main' }}
+         push: ${{ github.ref == 'refs/heads/master' }}
 
       - name: Build image and push database
         uses: docker/build-push-action@v3
         with:
           context: ./db/
           tags: ${{secrets.DOCKERHUB_USERNAME}}/db
-          push: ${{ github.ref == 'refs/heads/main' }}
+          push: ${{ github.ref == 'refs/heads/master' }}
 
       - name: Build image and push httpd
         uses: docker/build-push-action@v3
         with:
           context: ./http/
           tags: ${{secrets.DOCKERHUB_USERNAME}}/http
-          push: ${{ github.ref == 'refs/heads/main' }}
+          push: ${{ github.ref == 'refs/heads/master' }}
