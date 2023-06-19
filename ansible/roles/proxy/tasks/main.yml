@@ -1,0 +1,9 @@
+
+- name: Run httpd
+  docker_container:
+    name: httpd
+    image: djedjiga18/http
+    networks:
+      - name: my-network
+    published_ports:
+      - "80:80"

@@ -62,3 +62,10 @@ jobs:
           context: ./http/
           tags: ${{secrets.DOCKERHUB_USERNAME}}/http
           push: ${{ github.ref == 'refs/heads/master' }}
+
+      - name: Build image and push frontend
+        uses: docker/build-push-action@v3
+        with:
+          context: ./front/
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/front
+          push: ${{ github.ref == 'refs/heads/master' }}

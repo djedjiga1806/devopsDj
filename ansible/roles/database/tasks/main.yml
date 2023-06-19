@@ -1,0 +1,14 @@
+
+- name: Run database
+  docker_container:
+    name: mydb
+    image: djedjiga18/db
+    env:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "mydb"
+    networks:
+      - name: my-network
+    volumes:
+      - "shared-docker:/path/in/container"
+
