@@ -1,0 +1,7 @@
+
+  - name: Run app
+    docker_container:
+      name: backend
+      image: djedjiga18/front
+      networks:
+        - name: my-network
